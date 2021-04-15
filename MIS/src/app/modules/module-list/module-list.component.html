@@ -1,0 +1,7 @@
+<h2>All Modules</h2>
+
+<ul>
+    <li *ngFor="let module of modules">
+        <span>{{module.code}} : {{module.name}} </span><a routerLink="/module/{{module.code}}">Details</a>
+    </li>
+</ul>
