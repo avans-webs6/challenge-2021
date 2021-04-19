@@ -7,13 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModuleListComponent implements OnInit {
 
-  public modules = [
-    { code: 'WEBS6', EC: 3, name: 'Advanced Javascript' },
-    { code: 'DPINT', EC: 4, name: 'Design Patterns' },
-    { code: 'SOPRJ12', EC: 5, name: 'PROJECT EVERYWHERE' }
-  ]
+  public modules: any[] = []
 
-  constructor() { }
+  constructor() { 
+    let storage = localStorage.getItem('modules');
+    this.modules = JSON.parse(storage) || [];
+  }
 
   ngOnInit(): void {
   }

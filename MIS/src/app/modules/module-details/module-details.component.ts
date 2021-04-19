@@ -8,13 +8,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ModuleDetailsComponent implements OnInit {
 
-  public code: string;
+  public module : any;
 
   constructor(private route: ActivatedRoute) { 
   }
 
   ngOnInit(): void {
-      this.code = this.route.snapshot.paramMap.get('id');
+      let code = this.route.snapshot.paramMap.get('id');
+
+      let storage = localStorage.getItem('modules');
+      let modules = JSON.parse(storage) || [];
+      this.module = modules.find((m : any) => m.code == code);
   }
 
 }

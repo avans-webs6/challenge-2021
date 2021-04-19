@@ -1,7 +1,7 @@
-<div *ngIf="!code">
-    <p>Loading module</p>
+<div *ngIf="!module">
+    <p>Loading module...</p>
 </div>
 
-<div *ngIf="code">
-    <h2>{{code}}: Name placeholder</h2>
+<div *ngIf="module">
+    <h2>{{module.code}}: {{module.name}}</h2>
 </div>

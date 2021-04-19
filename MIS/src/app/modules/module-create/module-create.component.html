@@ -1,0 +1,21 @@
+<button (click)="showModal = true">Create module</button>
+
+<div *ngIf="showModal" class="modal-bg">
+    <div class="modal">
+        <h2>Create Module</h2>
+
+        <fieldset>
+            <label for="code">CODE</label><br>
+            <input  [(ngModel)]="module.code" type="text" id="code">
+        </fieldset>
+
+        <fieldset>
+            <label for="name">Name</label><br>
+            <input [(ngModel)]="module.name" type="text" id="name">
+        </fieldset>
+
+        <button (click)="create()">Create</button>
+        <button (click)="showModal = false">Cancel</button>
+
+    </div>
+</div>

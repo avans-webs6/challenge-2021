@@ -6,16 +6,20 @@ import { AppComponent } from './app.component';
 import { ModuleListComponent } from './modules/module-list/module-list.component';
 import { ModuleDetailsComponent } from './modules/module-details/module-details.component';
 import { RouterModule } from '@angular/router';
+import { ModuleCreateComponent } from './modules/module-create/module-create.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ModuleListComponent,
-    ModuleDetailsComponent
+    ModuleDetailsComponent,
+    ModuleCreateComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
