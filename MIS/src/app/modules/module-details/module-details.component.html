@@ -4,4 +4,11 @@
 
 <div *ngIf="module">
     <h2>{{module.code}}: {{module.name}}</h2>
+
+    <div class="options">
+        <a routerLink="/module/{{module.code}}/edit">Edit module</a>
+    </div>
+
+    <p>More details coming soon....</p>
 </div>
+

@@ -8,13 +8,19 @@ import { ModuleDetailsComponent } from './modules/module-details/module-details.
 import { RouterModule } from '@angular/router';
 import { ModuleCreateComponent } from './modules/module-create/module-create.component';
 import { FormsModule } from '@angular/forms';
+import { ModuleEditComponent } from './modules/module-edit/module-edit.component';
+import { ModalComponent } from './generic/modal/modal.component';
+import { ModuleFormComponent } from './modules/module-form/module-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ModuleListComponent,
     ModuleDetailsComponent,
-    ModuleCreateComponent
+    ModuleCreateComponent,
+    ModuleEditComponent,
+    ModalComponent,
+    ModuleFormComponent
   ],
   imports: [
     BrowserModule,

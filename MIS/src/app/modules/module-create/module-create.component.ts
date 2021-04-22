@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModuleService } from 'src/app/modules/module.service';
 
 @Component({
   selector: 'app-module-create',
@@ -10,20 +11,16 @@ export class ModuleCreateComponent implements OnInit {
   public showModal: boolean = false;
   public module: any;
 
-  constructor() { }
+  constructor(private moduleService: ModuleService) { }
 
   ngOnInit(): void {
     this.module = {};
   }
 
   create(){
-    let storage = localStorage.getItem('modules');
-    let modules = storage ? JSON.parse(storage) : [];
-    modules.push(this.module);
-    localStorage.setItem('modules', JSON.stringify(modules));
+    this.moduleService.create(this.module);   
     this.module = {};
     this.showModal = false;
-
   }
 
 }

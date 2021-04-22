@@ -4,15 +4,7 @@
     <div class="modal">
         <h2>Create Module</h2>
 
-        <fieldset>
-            <label for="code">CODE</label><br>
-            <input  [(ngModel)]="module.code" type="text" id="code">
-        </fieldset>
-
-        <fieldset>
-            <label for="name">Name</label><br>
-            <input [(ngModel)]="module.name" type="text" id="name">
-        </fieldset>
+        <app-module-form [module]="module"></app-module-form>
 
         <button (click)="create()">Create</button>
         <button (click)="showModal = false">Cancel</button>

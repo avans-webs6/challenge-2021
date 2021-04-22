@@ -1,0 +1,11 @@
+<div *ngIf="module">
+    <fieldset>
+        <label for="code">CODE</label><br>
+        <input  [(ngModel)]="module.code" type="text" id="code">
+    </fieldset>
+    
+    <fieldset>
+        <label for="name">Name</label><br>
+        <input [(ngModel)]="module.name" type="text" id="name">
+    </fieldset>
+</div>
