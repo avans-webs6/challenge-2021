@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -6,35 +7,25 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class ModuleService {
 
+  public modules$ : Observable<any[]>  ;
 
-  public modules$ : BehaviorSubject<any[]>  ;
-  modules: any[]; //ik hou een 'latest' value bij omdat dat makkelijker is. 
+  constructor(private store: AngularFirestore) { 
 
-  constructor() { 
-    this.modules = JSON.parse(localStorage.getItem('modules')) || [];
-    this.modules$ = new BehaviorSubject<any[]>(this.modules);
+    this.modules$ = this.store.collection('modules').valueChanges({ idField: 'id' }) as Observable<any[]>;
+
   }
 
   create(module: any){
-      this.modules.push(module);
-      this.updateModules(this.modules);
+      this.store.collection('modules').add(module);
   }
 
   editModule(code: string, module: any){
-      let old = this.modules.find(m => m.code == code);
-      let index = this.modules.indexOf(old);
-      this.modules[index] = module; //prima voor nu.
-      this.updateModules(this.modules);
+      this.store.collection('modules').doc(code).update(module);
+      
   }
 
   getModule(code: string): any {
-      return this.modules.find(m => m.code == code);
-  }
-
-  //helper
-  private updateModules(modules: any[]){
-    localStorage.setItem('modules', JSON.stringify(this.modules));
-    this.modules$.next(this.modules); //update subject
+      this.store.collection('modules').doc(code).valueChanges({ idField: 'id' }) as Observable<any>;
   }
   
 }

@@ -11,6 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { ModuleEditComponent } from './modules/module-edit/module-edit.component';
 import { ModalComponent } from './generic/modal/modal.component';
 import { ModuleFormComponent } from './modules/module-form/module-form.component';
+import { AngularFireModule,  } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+import { environment } from 'src/environments/environment.prod';
 
 @NgModule({
   declarations: [
@@ -20,12 +24,14 @@ import { ModuleFormComponent } from './modules/module-form/module-form.component
     ModuleCreateComponent,
     ModuleEditComponent,
     ModalComponent,
-    ModuleFormComponent
+    ModuleFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

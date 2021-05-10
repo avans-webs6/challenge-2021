@@ -28,4 +28,6 @@ export class ModuleEditComponent implements OnInit {
     this.router.navigate(['/module', module.code]);
   }
 
+  
+
 }

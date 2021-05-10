@@ -102,3 +102,8 @@ dist
 
 # TernJS port file
 .tern-port
+
+#environment
+MIS/src/environments/environment.dev.ts
+.github/workflows/firebase-hosting-pull-request.yml
+.github/workflows/firebase-hosting-merge.yml

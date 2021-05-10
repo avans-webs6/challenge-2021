@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "webs6-2021-4d3bc"
+  },
+  "targets": {
+    "webs6-2021-4d3bc": {
+      "hosting": {
+        "MIS": [
+          "webs6-2021-4d3bc"
+        ]
+      }
+    }
+  }
+}
