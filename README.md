@@ -9,7 +9,6 @@ In deze repo vind je de uitwerking per week.
 Er is 1 branch per week beschikbaar waar je de uitwerking van die week vind. 
 De uitwerking is gemaakt in Angular > 11.0.
 
-
 # Week 1
 - Start project 
 - Lijst van modules
@@ -17,8 +16,13 @@ De uitwerking is gemaakt in Angular > 11.0.
 - Nieuwe module aanmaken
 
 # Week 2
+- Services
+- Observables
 
 # Week 3
+- Firebase
+- TODO: Copy environment.ts naar environment.dev.ts
+
 
 # Week 4
 
