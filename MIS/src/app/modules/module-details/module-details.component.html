@@ -1,8 +1,7 @@
-<div *ngIf="!module">
-    <p>Loading module...</p>
-</div>
 
-<div *ngIf="module">
+
+<div *ngIf="module$ | async as module; else loading">
+
     <h2>{{module.code}}: {{module.name}}</h2>
 
     <div class="options">
@@ -12,3 +11,6 @@
     <p>More details coming soon....</p>
 </div>
 
+<ng-template #loading>
+    <p>Loading module...</p>
+</ng-template>

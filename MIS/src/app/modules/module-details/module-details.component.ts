@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ModuleService } from '../module.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { ModuleService } from '../module.service';
 })
 export class ModuleDetailsComponent implements OnInit {
 
-  public module : any;
+  public module$ : Observable<any>;
 
   constructor(
     private route: ActivatedRoute,
@@ -18,7 +19,7 @@ export class ModuleDetailsComponent implements OnInit {
 
   ngOnInit(): void {
       let code = this.route.snapshot.paramMap.get('code');
-      this.module = this.moduleService.getModule(code);
+      this.module$ = this.moduleService.getModule(code);
   }
 
 }

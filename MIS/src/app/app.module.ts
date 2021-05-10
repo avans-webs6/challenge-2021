@@ -14,7 +14,7 @@ import { ModuleFormComponent } from './modules/module-form/module-form.component
 import { AngularFireModule,  } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment.dev';
 
 @NgModule({
   declarations: [

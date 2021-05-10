@@ -16,7 +16,8 @@ export class ModuleService {
   }
 
   create(module: any){
-      this.store.collection('modules').add(module);
+      //this.store.collection('modules').add(module);
+      this.store.collection("modules").doc(module.code).set(module);
   }
 
   editModule(code: string, module: any){
@@ -25,7 +26,7 @@ export class ModuleService {
   }
 
   getModule(code: string): any {
-      this.store.collection('modules').doc(code).valueChanges({ idField: 'id' }) as Observable<any>;
+      return this.store.collection('modules').doc(code).valueChanges({ idField: 'id' }) as Observable<any>;
   }
   
 }

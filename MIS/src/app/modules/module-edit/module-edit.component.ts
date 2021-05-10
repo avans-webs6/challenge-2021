@@ -9,7 +9,7 @@ import { ModuleService } from '../module.service';
 })
 export class ModuleEditComponent implements OnInit {
   
-  module: any;
+  module$: any;
   code: string;
 
   constructor(
@@ -20,7 +20,7 @@ export class ModuleEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.code = this.route.snapshot.paramMap.get('code');
-    this.module = this.moduleService.getModule(this.code);
+    this.module$ = this.moduleService.getModule(this.code);
   }
 
   save(module: any){
