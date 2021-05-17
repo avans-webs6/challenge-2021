@@ -1,11 +1,49 @@
-<div *ngIf="module">
-    <fieldset>
-        <label for="code">CODE</label><br>
-        <input  [(ngModel)]="module.code" type="text" id="code">
-    </fieldset>
-    
-    <fieldset>
-        <label for="name">Name</label><br>
-        <input [(ngModel)]="module.name" type="text" id="name">
-    </fieldset>
+<div *ngIf="moduleForm">
+
+    <form [formGroup]="moduleForm">
+
+
+        <fieldset>
+            <label>
+                Code:
+            </label>
+            <input type="text" formControlName="code">
+
+        </fieldset>
+
+        <fieldset>
+            <label>
+                Naam:
+            </label>
+            <input type="text" formControlName="name">
+
+        </fieldset>
+
+        <fieldset>
+            <label>
+                EC:
+            </label>
+            <input type="number" formControlName="EC">
+
+        </fieldset>
+
+        <fieldset>
+            <label>
+                Blok:
+            </label>
+            <input type="number" formControlName="blok">
+
+        </fieldset>
+
+        <fieldset>
+            <label>
+                Omschrijving:
+
+            </label>
+            <textarea type="text" formControlName="omschrijving"></textarea>
+
+
+        </fieldset>
+
+    </form>
 </div>

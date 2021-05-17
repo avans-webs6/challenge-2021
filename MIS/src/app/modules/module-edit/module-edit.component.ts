@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import Module from '../module';
 import { ModuleService } from '../module.service';
 
 @Component({
@@ -9,7 +11,7 @@ import { ModuleService } from '../module.service';
 })
 export class ModuleEditComponent implements OnInit {
   
-  module$: any;
+  module$: Subject<Module>;
   code: string;
 
   constructor(
@@ -25,7 +27,7 @@ export class ModuleEditComponent implements OnInit {
 
   save(module: any){
     this.moduleService.editModule(this.code, module);
-    this.router.navigate(['/module', module.code]);
+    //this.router.navigate(['/module', module.code]);
   }
 
   

@@ -2,9 +2,7 @@
 
 <div *ngIf="module$ | async as module; else loading">
 
-    <app-module-form [module]="module"></app-module-form>
-
-    <button (click)="save(module)">Save changes</button>
+    <app-module-form [module]="module" (onChange)="save($event)"></app-module-form>
 
 </div>
 

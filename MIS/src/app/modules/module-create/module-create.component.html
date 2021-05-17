@@ -4,7 +4,7 @@
     <div class="modal">
         <h2>Create Module</h2>
 
-        <app-module-form [module]="module"></app-module-form>
+        <app-module-form [module]="module" (onChange)="module = $event"></app-module-form>
 
         <button (click)="create()">Create</button>
         <button (click)="showModal = false">Cancel</button>
