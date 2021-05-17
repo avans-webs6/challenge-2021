@@ -1,15 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import testbed from 'src/test/testbed';
 
 import { ModuleDetailsComponent } from './module-details.component';
 
-describe('ModuleDetailsComponent', () => {
+xdescribe('ModuleDetailsComponent', () => {
   let component: ModuleDetailsComponent;
   let fixture: ComponentFixture<ModuleDetailsComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ ModuleDetailsComponent ]
-    })
+    testbed.declarations.push(ModuleDetailsComponent);
+    await TestBed.configureTestingModule(testbed)
     .compileComponents();
   });
 

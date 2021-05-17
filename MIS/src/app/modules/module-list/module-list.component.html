@@ -2,7 +2,7 @@
 
 <app-module-create></app-module-create>
 
-<ul>
+<ul class="errors">
     <li *ngFor="let module of $modules | async">
         <span>{{module.code}} : {{module.name}} </span><a routerLink="/module/{{module.code}}">Details</a>
     </li>
