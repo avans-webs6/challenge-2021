@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
 import Module from './module';
 
 @Injectable({
@@ -26,8 +27,34 @@ export class ModuleService {
       
   }
 
-  getModule(code: string): any {
-      return this.store.collection('modules').doc(code).valueChanges({ idField: 'id' }) as Observable<any>;
+  getModule(code: string): Observable<Module> {
+      return this.store.collection('modules').doc(code).valueChanges({ idField: 'id' }) 
+        .pipe(map((data: any) => {
+          //Nu hebben we een echte module met bijv de methodes op de klasse! (i.p.v een cast)
+          return new Module(data);
+        }));
   }
-  
+
+  getModuleOwner(code: string): Observable<any> {
+    return this.getModule(code)
+      .pipe(mergeMap((module: any) => {
+          return this.store.collection('users').doc(module.owner).valueChanges();
+      }));
+  }
+
+  getModuleOwners(code: string): Observable<any> {
+    return this.getModule(code)
+      .pipe(mergeMap((module: any) => {
+
+          let owners$ : Observable<any>[] = [];
+
+          //module.owners is een lijst van ownerId's => [1, 5, 2, 10]
+          module.owners.forEach((u: any) => {
+            owners$.push(this.store.collection('users').doc(u).valueChanges());
+          })
+
+          return combineLatest(owners$);
+      }));
+  }
+
 }

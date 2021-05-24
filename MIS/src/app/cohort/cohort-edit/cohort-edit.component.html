@@ -1,0 +1,17 @@
+<h2>Edit Cohort</h2>
+
+<div *ngIf="cohort$ | async as cohort; else loading">
+
+    <h3>Cohort {{cohort.year}}</h3>
+
+    <h2>Modules</h2>
+
+    <ul>
+        <li *ngFor="let module of cohort.modules">{{module.code}} : {{module.name}}</li>
+    </ul>
+
+</div>
+
+<ng-template #loading>
+    <p>Loading cohort...</p>
+</ng-template>

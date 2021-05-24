@@ -39,9 +39,6 @@ export class ModuleFormComponent implements OnInit, OnChanges {
         if(module.EC > 5)
           this.errors.push("EC moet kleiner zijn dan 5");
 
-        if(!module.jaar)
-          this.errors.push("Jaar is verplicht");
-
         if(this.errors.length != 0)
           return;
 

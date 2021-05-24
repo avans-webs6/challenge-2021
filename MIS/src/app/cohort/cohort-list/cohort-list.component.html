@@ -1,0 +1,8 @@
+<h1>Cohorts</h1>
+
+
+<ul class="errors">
+    <li *ngFor="let cohort of $cohorts | async">
+        <span>{{cohort.year}}</span><a routerLink="/cohort/{{cohort.year}}/edit">Details</a>
+    </li>
+</ul>

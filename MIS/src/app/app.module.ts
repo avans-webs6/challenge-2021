@@ -15,6 +15,8 @@ import { AngularFireModule,  } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { environment } from 'src/environments/environment.dev';
+import { CohortListComponent } from './cohort/cohort-list/cohort-list.component';
+import { CohortEditComponent } from './cohort/cohort-edit/cohort-edit.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { environment } from 'src/environments/environment.dev';
     ModuleEditComponent,
     ModalComponent,
     ModuleFormComponent,
+    CohortListComponent,
+    CohortEditComponent,
   ],
   imports: [
     BrowserModule,

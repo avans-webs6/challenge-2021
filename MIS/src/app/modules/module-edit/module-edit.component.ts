@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import Module from '../module';
 import { ModuleService } from '../module.service';
 
@@ -11,7 +11,7 @@ import { ModuleService } from '../module.service';
 })
 export class ModuleEditComponent implements OnInit {
   
-  module$: Subject<Module>;
+  module$: Observable<Module>;
   code: string;
 
   constructor(
