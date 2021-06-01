@@ -1,0 +1,16 @@
+<div>
+
+    
+
+    <div *ngIf="auth.user | async as user; else logintemplate">
+        {{user.email}}
+        <button (click)="logout()">Logout</button>
+    </div>
+
+    <ng-template #logintemplate>
+        <input [(ngModel)]="form.email">
+        <input [(ngModel)]="form.password" type="password">
+        <button (click)="login()">Login</button>
+    </ng-template>
+    
+</div>

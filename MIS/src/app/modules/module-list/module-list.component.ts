@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ModuleService } from 'src/app/modules/module.service';
 
@@ -9,18 +9,25 @@ import { ModuleService } from 'src/app/modules/module.service';
 })
 export class ModuleListComponent implements OnInit {
 
-  public modules: any[] = []
   $modules: Observable<any[]>;
 
-  constructor(private moduleService: ModuleService ) { 
-    //Je kan er ook voor kiezen om je service public te maken en rechtstreeks van uit het template
-    //op de service.modules$ verder te bouwen.
-    this.$modules = moduleService.modules$;
-    let storage = localStorage.getItem('modules');
-    this.modules = JSON.parse(storage) || [];
-  }
+  public haan: string;
+
+  @Input()
+  public userId: string; 
+
+  constructor(private moduleService: ModuleService ) {}
 
   ngOnInit(): void {
+    if(!this.userId){
+      this.haan = "All"
+      this.$modules = this.moduleService.modules$;
+    }
+    else {
+      this.haan = "My";
+      this.$modules = this.moduleService.getModulesByUserId(this.userId);
+
+    }
   }
 
 }

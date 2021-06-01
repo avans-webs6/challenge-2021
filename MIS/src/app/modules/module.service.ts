@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
+import { AuthService } from '../auth.service';
 import Module from './module';
 
 @Injectable({
@@ -9,9 +10,19 @@ import Module from './module';
 })
 export class ModuleService {
 
+  getMyModules(): Observable<any[]> {
+    return this.auth.user.pipe(mergeMap(user => {
+        return this.store.collection('modules', ref => ref.where("owner", "==", user.email)).valueChanges();
+    }))
+  }
+  
+  getModulesByUserId(userId: string): Observable<any[]> {
+      return this.store.collection('modules', ref => ref.where("owner", "==", userId)).valueChanges();
+  }
+
   public modules$ : Observable<Module[]>  ;
 
-  constructor(private store: AngularFirestore) { 
+  constructor(private store: AngularFirestore, private auth: AuthService) { 
 
     this.modules$ = this.store.collection('modules').valueChanges({ idField: 'id' }) as Observable<any[]>;
 

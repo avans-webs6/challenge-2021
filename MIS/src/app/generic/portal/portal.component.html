@@ -1,0 +1,18 @@
+<div *ngIf="auth.user | async as user; else logintemplate">
+
+    <h2>Welkom {{user.email}}</h2>
+    
+    <hr>
+
+    <app-module-list [userId]="user.email"></app-module-list>
+
+    <app-my-modules></app-my-modules>
+    
+</div>
+
+
+<ng-template #logintemplate>
+    <h2>Welcome</h2>
+
+    <p>Please login to continue using this app!</p>
+</ng-template>

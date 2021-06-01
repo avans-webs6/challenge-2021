@@ -1,9 +1,7 @@
-<h2>{{haan}} Modules</h2>
-
-<app-module-create></app-module-create>
+<h2>My Modules</h2>
 
 <ul class="errors">
-    <li *ngFor="let module of $modules | async">
+    <li *ngFor="let module of modules$ | async">
         <span>{{module.code}} : {{module.name}} </span><a routerLink="/module/{{module.code}}">Details</a>
     </li>
 </ul>

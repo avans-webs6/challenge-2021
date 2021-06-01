@@ -14,9 +14,12 @@ import { ModuleFormComponent } from './modules/module-form/module-form.component
 import { AngularFireModule,  } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
-import { environment } from 'src/environments/environment.dev';
+import { environment } from 'src/environments/environment.prod';
 import { CohortListComponent } from './cohort/cohort-list/cohort-list.component';
 import { CohortEditComponent } from './cohort/cohort-edit/cohort-edit.component';
+import { LoginComponent } from './generic/login/login.component';
+import { PortalComponent } from './generic/portal/portal.component';
+import { MyModulesComponent } from './modules/my-modules/my-modules.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { CohortEditComponent } from './cohort/cohort-edit/cohort-edit.component'
     ModuleFormComponent,
     CohortListComponent,
     CohortEditComponent,
+    LoginComponent,
+    PortalComponent,
+    MyModulesComponent,
   ],
   imports: [
     BrowserModule,
